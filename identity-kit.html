@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Identity Kit — Shraddha</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --main:#1E3AF2;
+    --text:#121212;
+    --bg:#F7F6F2;
+    --accent:#FFD400;
+    --card:#FFFFFF;
+    --line:#E4E2DA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    padding:64px 24px 80px;
+  }
+  .page{
+    max-width:880px;
+    margin:0 auto;
+  }
+  .kicker{
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--main);
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  h1.wordmark{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(40px,7vw,72px);
+    letter-spacing:-0.01em;
+    line-height:1;
+    margin:0 0 4px;
+  }
+  h1.wordmark span{
+    color:var(--main);
+  }
+  .role{
+    font-size:16px;
+    color:#5b5a55;
+    margin:0 0 48px;
+  }
+  section{
+    margin-bottom:56px;
+  }
+  h2.label{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--text);
+    border-bottom:2px solid var(--text);
+    display:inline-block;
+    padding-bottom:6px;
+    margin:0 0 24px;
+  }
+
+  /* Type section */
+  .type-row{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .type-card{
+    flex:1;
+    min-width:280px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 28px 24px;
+  }
+  .type-card .sample-h{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:34px;
+    line-height:1.1;
+    margin:0 0 12px;
+  }
+  .type-card .sample-b{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    color:#3a3a37;
+    margin:0 0 20px;
+  }
+  .type-meta{
+    font-size:13px;
+    color:#7a7972;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+  .type-meta b{
+    color:var(--text);
+    font-weight:600;
+  }
+
+  /* Palette */
+  .palette{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+  }
+  .swatch{
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--card);
+  }
+  .swatch-color{
+    height:96px;
+  }
+  .swatch-info{
+    padding:12px 14px;
+  }
+  .swatch-name{
+    font-size:13px;
+    font-weight:600;
+    margin:0 0 2px;
+  }
+  .swatch-hex{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:13px;
+    color:#6b6a64;
+    margin:0;
+  }
+
+  /* Logo */
+  .logo-row{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+    align-items:flex-start;
+  }
+  .mark{
+    width:120px;
+    height:120px;
+    background:var(--main);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .mark .letters{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:44px;
+    color:#F7F6F2;
+    line-height:1;
+  }
+  .mark .dot{
+    position:absolute;
+    bottom:16px;
+    right:16px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .favicon{
+    width:64px;
+    height:64px;
+    background:var(--main);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .favicon .letters{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:#F7F6F2;
+  }
+  .logo-caption{
+    font-size:13px;
+    color:#7a7972;
+    margin-top:10px;
+  }
+  .logo-col{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .wordmark-lockup{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px 32px;
+    flex:1;
+    min-width:280px;
+    display:flex;
+    align-items:center;
+  }
+  .wordmark-lockup .lockup-text{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:28px;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+  }
+  .wordmark-lockup .lockup-text .u{
+    border-bottom:4px solid var(--accent);
+  }
+
+  /* Style note */
+  .note{
+    background:var(--text);
+    color:var(--bg);
+    border-radius:4px;
+    padding:28px 32px;
+  }
+  .note p{
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.65;
+    margin:0 0 10px;
+  }
+  .note p:last-child{margin-bottom:0;}
+  .note b{
+    color:var(--accent);
+    font-weight:600;
+  }
+
+  footer{
+    font-size:12px;
+    color:#9c9b94;
+    text-align:center;
+    margin-top:64px;
+  }
+
+  @media (max-width:600px){
+    .palette{grid-template-columns:repeat(2,1fr);}
+    .type-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <p class="kicker">Identity kit</p>
+  <h1 class="wordmark">Shrad<span>dha</span></h1>
+  <p class="role">Portfolio system — fonts, palette, mark, and mood, decided once.</p>
+
+  <section>
+    <h2 class="label">Type</h2>
+    <div class="type-row">
+      <div class="type-card">
+        <p class="sample-h">Heading face</p>
+        <p class="sample-b">Bold, geometric, a little industrial. Used for names, section labels, and case study titles.</p>
+        <div class="type-meta"><b>Space Grotesk</b> · 700 · free, Google Fonts</div>
+      </div>
+      <div class="type-card">
+        <p class="sample-h" style="font-family:'Inter',sans-serif; font-weight:600; font-size:28px;">Body face</p>
+        <p class="sample-b">Neutral and easy to read at length, for descriptions, captions, and everything that isn't shouting for attention.</p>
+        <div class="type-meta"><b>Inter</b> · 400 / 500 / 600 · free, Google Fonts</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="label">Palette</h2>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:var(--main);"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Main — cobalt</p>
+          <p class="swatch-hex">#1E3AF2</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:var(--text);"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Text — near-black</p>
+          <p class="swatch-hex">#121212</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:var(--bg); border-bottom:1px solid var(--line);"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Background — near-white</p>
+          <p class="swatch-hex">#F7F6F2</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:var(--accent);"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Accent — signal yellow</p>
+          <p class="swatch-hex">#FFD400</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="label">Logo / favicon</h2>
+    <div class="logo-row">
+      <div class="logo-col">
+        <div class="mark"><span class="letters">S</span><span class="dot"></span></div>
+        <p class="logo-caption">Square mark, favicon-ready</p>
+      </div>
+      <div class="logo-col">
+        <div class="favicon"><span class="letters">S</span></div>
+        <p class="logo-caption">16–64px favicon</p>
+      </div>
+      <div class="wordmark-lockup">
+        <p class="lockup-text">Shrad<span class="u">dha</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-bottom:0;">
+    <h2 class="label">Style note</h2>
+    <div class="note">
+      <p>Space Grotesk headlines over Inter body, cobalt <b>#1E3AF2</b> against near-black <b>#121212</b> and warm white <b>#F7F6F2</b>, one hit of signal yellow <b>#FFD400</b> to mark what matters.</p>
+      <p>Mood: confident and unadorned — geometric type, flat color, no gradients or noise, so the case studies stay the loudest thing on the page.</p>
+    </div>
+  </section>
+
+  <footer>Identity kit · one page · fonts, palette, mark, and mood — decided once, inherited everywhere.</footer>
+
+</div>
+</body>
+</html>
